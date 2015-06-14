@@ -1,0 +1,18 @@
+﻿<div id="body">
+    <ul id="machines"></ul>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+$(function()
+{
+        $.getJSON('/api/WakeOnLan', function(contactsJsonPayload)
+        {
+            $(contactsJsonPayload).each(function(i, item)
+            {
+                $('#machines').append('<li>' + item.Name + '</li>');
+            });
+        });
+});
+    </script>
+}
